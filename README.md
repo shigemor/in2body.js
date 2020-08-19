@@ -177,12 +177,12 @@ console.log( in2body.get('version'));
 in2body.Update();
 ```
 
-###### removeEventListener
+###### Remove EventListener
 ```js
 in2body.Remove_Event();
 ```
 
-###### addEventListener
+###### Add EventListener
 ```js
 in2body.Add_Event();
 ```
