@@ -97,8 +97,8 @@ in2body.run({
 | Name | Description |
 | --- | --- |
 | `is_browser` | `ie6` `ie7` `ie8` `ie9` `ie10` `ie11` `edge` `chrome` `firefox` `safari` `opera` `blackberrybrowser` `blackberryplaybook` `netfront` `nintendobrowser` |
-| `is_edge_legacy` | Not Chromium-based version Microsoft Edge |
-| `is_safari_like` | Using the AppleWebKit browser |
+| `is_edge_legacy` | Add `edge_legacy` Not Chromium-based version Microsoft Edge |
+| `is_safari_like` | Add `safari_like` Using the AppleWebKit browser |
 | `is_ie` | Add Microsoft Internet Explorer FLAG(Class) |
 
 ###### is_breakpoint `BP`
