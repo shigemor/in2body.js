@@ -1,0 +1,122 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no, user-scalable=no">
+<title>in2body.js</title>
+</head>
+<body>
+
+
+
+
+
+<h1>in2body.js v1.0.0</h1>
+<p>https://github.com/shigemor/in2body.js</p>
+
+
+
+
+
+<script src="dist/in2body.min.js" charset="utf-8"></script>
+<script charset="utf-8">
+	
+	
+//	in2body.run();
+	
+	
+	in2body.run({
+		is_device :			true,
+		is_product :		true,	// Operating System
+		is_browser :		true,	// Web browsers
+		
+		is_edge_legacy :	true,	// "edge_legacy" is Not Chromium-based version Microsoft Edge
+		is_safari_like :	true,	// "safari_like" is Using the AppleWebKit
+		
+		is_ie :				true,	// "ie" is Microsoft Internet Explorer FLAG
+		
+		is_breakpoint :		true,	// Responsive breakpoints
+		is_orientation :	true,
+		is_square :			true,
+		is_yratio :			true,	// Y position for scroll
+		is_xratio :			true,	// X position for scroll
+		
+		is_month :			true,
+		is_date :			true,
+		is_day :			true,	// Day of the week
+		
+		is_hour :			true,
+		is_min :			true,
+		is_sec :			true
+	});
+	
+	
+//	in2body.run({
+//		is_device :			false,
+//		is_product :		false,	// Operating System
+//		is_browser :		false,	// Web browsers
+//		
+//		is_edge_legacy :	false,	// "edge_legacy" is Not Chromium-based version Microsoft Edge
+//		is_safari_like :	false,	// "safari_like" is Using the AppleWebKit
+//		
+//		is_ie :				false,	// "ie" is Microsoft Internet Explorer FLAG
+//		
+//		is_breakpoint :		false,	// Responsive breakpoints
+//		is_orientation :	false,
+//		is_square :			false,
+//		is_yratio :			false,	// Y position for scroll
+//		is_xratio :			false,	// X position for scroll
+//		
+//		is_month :			false,
+//		is_date :			false,
+//		is_day :			false,	// Day of the week
+//		
+//		is_hour :			false,
+//		is_min :			false,
+//		is_sec :			false
+//	});
+	
+	
+	console.log( in2body.get('device'));
+	console.log( in2body.get('product'));
+	console.log( in2body.get('browser'));
+	console.log( in2body.get('is_ie'));
+
+	console.log( in2body.get('breakpoint'));
+	console.log( in2body.get('orientation'));
+	console.log( in2body.get('pageYRatio'));
+	console.log( in2body.get('pageYRatio_finely'));
+	console.log( in2body.get('pageXRatio'));
+	console.log( in2body.get('pageXRatio_finely'));
+
+	console.log( in2body.get('year'));
+	console.log( in2body.get('month'));
+	console.log( in2body.get('date'));
+	console.log( in2body.get('day'));
+
+	console.log( in2body.get('hour'));
+	console.log( in2body.get('min'));
+	console.log( in2body.get('sec'));
+
+	console.log( in2body.get('window.Height'));
+	console.log( in2body.get('window.Width'));
+	console.log( in2body.get('client.Height'));
+	console.log( in2body.get('client.Width'));
+	console.log( in2body.get('document.Height'));
+	console.log( in2body.get('document.Width'));
+	console.log( in2body.get('pageYOffset'));
+	console.log( in2body.get('pageXOffset'));
+
+	console.log( in2body.get('version'));
+	
+	
+//	in2body.Remove_Event();
+//	in2body.Add_Event();
+//	in2body.Update();
+	
+	
+</script>
+
+</body>
+</html>
