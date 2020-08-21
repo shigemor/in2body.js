@@ -1,4 +1,4 @@
-// in2body.js version 1.0.0
+// in2body.js version 1.0.1
 // MIT license.
 // Written by Takayuki Shigemori on 2020 Summer.
 
@@ -523,7 +523,7 @@
 			if( 1200 >  document.documentElement.clientWidth)	result_breakpoint= 'lg';	// Large / desktops( ≥992px)
 			if(  992 >  document.documentElement.clientWidth)	result_breakpoint= 'md';	// Medium / tablets( ≥768px)
 			if(  768 >  document.documentElement.clientWidth)	result_breakpoint= 'sm';	// Small / landscape phones( ≥576px)
-			if(  576 >= document.documentElement.clientWidth)	result_breakpoint= 'xs';	// Extra small / portrait phones( 0–576px)
+			if(  576 >  document.documentElement.clientWidth)	result_breakpoint= 'xs';	// Extra small / portrait phones( <576px)
 			
 			var max_Y= Math.max( document.body.scrollHeight, document.documentElement.scrollHeight,
 								 document.body.offsetHeight, document.documentElement.offsetHeight,
