@@ -1,4 +1,4 @@
-// in2body.js version 1.0.1
+// in2body.js version 1.0.2
 // MIT license.
 // Written by Takayuki Shigemori on 2020 Summer.
 
@@ -485,7 +485,7 @@
 						break;
 
 					case 'version':
-						result= '1.0.1'; // ver1.0.1
+						result= '1.0.2'; // ver1.0.2
 						break;
 				}
 				return result;
