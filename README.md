@@ -32,22 +32,22 @@ in2body.run({
 	is_device :		true,
 	is_product :		true,	// Operating System
 	is_browser :		true,	// Web browsers
-	
+
 	is_edge_legacy :	true,	// "edge_legacy" is Not Chromium-based version Microsoft Edge
 	is_safari_like :	true,	// "safari_like" is Using the AppleWebKit
-	
+
 	is_ie :			true,	// "ie" is Microsoft Internet Explorer FLAG
-	
+
 	is_breakpoint :		true,	// Responsive breakpoints
 	is_orientation :	true,
 	is_square :		true,
 	is_yratio :		true,	// Y position for scroll
 	is_xratio :		true,	// X position for scroll
-	
+
 	is_month :		true,
 	is_date :		true,
 	is_day :		true,	// Day of the week
-	
+
 	is_hour :		true,
 	is_min :		true,
 	is_sec :		true
@@ -63,22 +63,22 @@ in2body.run({
 	is_device :		false,
 	is_product :		false,	// Operating System
 	is_browser :		false,	// Web browsers
-	
+
 	is_edge_legacy :	false,	// "edge_legacy" is Not Chromium-based version Microsoft Edge
 	is_safari_like :	false,	// "safari_like" is Using the AppleWebKit
-	
+
 	is_ie :			false,	// "ie" is Microsoft Internet Explorer FLAG
-	
+
 	is_breakpoint :		false,	// Responsive breakpoints
 	is_orientation :	false,
 	is_square :		false,
 	is_yratio :		false,	// Y position for scroll
 	is_xratio :		false,	// X position for scroll
-	
+
 	is_month :		false,
 	is_date :		false,
 	is_day :		false,	// Day of the week
-	
+
 	is_hour :		false,
 	is_min :		false,
 	is_sec :		false
@@ -92,7 +92,7 @@ in2body.run({
 | Name | Description |
 | --- | --- |
 | `is_device` | `phone` `tablet` `desktop` |
-| `is_product` | `windows` `mac` `ipod` `iphone` `ipad` `android` `kindle` `blackberry` `meego` `windowsphone` `nintendo3ds` `nintendowiiu` `nintendoswitch` `playstationvita` `playstationportable` `microsoftxbox` `playstation` `linux` `bsd` `amazonfiretv` `appletv`  |
+| `is_product` | `windows` `mac` `ipod` `iphone` `ipad` `android` `kindle` `blackberry` `meego` `windowsphone` `nintendo3ds` `nintendowiiu` `nintendoswitch` `playstation` `playstationvita` `playstationportable` `microsoftxbox` `linux` `bsd` `amazonfiretv` `appletv`  |
 
 | Name | Description |
 | --- | --- |
@@ -109,7 +109,6 @@ in2body.run({
 | `lg` | Large / desktops ( ≥992px) |
 | `md` | Medium / tablets ( ≥768px) |
 | `sm` | Small / landscape phones ( ≥576px) |
-| `xs` | Extra small / portrait phones ( 0–576px) |
 | `xs` | Extra small / portrait phones( <576px) |
 
 
