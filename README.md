@@ -110,6 +110,7 @@ in2body.run({
 | `md` | Medium / tablets ( ≥768px) |
 | `sm` | Small / landscape phones ( ≥576px) |
 | `xs` | Extra small / portrait phones ( 0–576px) |
+| `xs` | Extra small / portrait phones( <576px) |
 
 
 | Name | Description |
