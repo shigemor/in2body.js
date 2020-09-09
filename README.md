@@ -119,8 +119,8 @@ in2body.run({
 
 | Name | Description |
 | --- | --- |
-| `is_yratio` | Y position for scroll 0-100 (Every 10 percent) |
-| `is_xratio` | X position for scroll 0-100 (Every 10 percent) |
+| `is_yratio` | Y position for scroll 0-100 (Every 10 percent) `YR0-100` |
+| `is_xratio` | X position for scroll 0-100 (Every 10 percent) `YR0-100` |
 
 | Name | Description |
 | --- | --- |
