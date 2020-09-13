@@ -1,4 +1,4 @@
-// in2body.js version 1.0.3
+// in2body.js version 1.0.4
 // https://github.com/shigemor/in2body.js
 //
 // Written by Takayuki Shigemori on 2020 Summer.
@@ -132,6 +132,18 @@
 				this.Update();
 				
 				setInterval( this.Update, 10000);
+				
+				if( ! in2body.result_is_ie){
+					const observer= new MutationObserver( function( mutations, observer){
+						in2body.Update();
+					});
+					observer.observe( document.body, {
+						attributes: true,
+						childList: true,
+						subtree: true,
+						attributeFilter: ['height']
+					});
+				}
 				
 			},
 			
@@ -270,6 +282,7 @@
 				
 			},
 			
+			
 			Set_userAgent: function(){
 				
 				if( this.settings.is_device)		this.bodyClass.add( this.result_device);
@@ -277,6 +290,7 @@
 				if( this.settings.is_ie)			if( this.result_is_ie) this.bodyClass.add('ie');
 				if( this.settings.is_browser)		this.bodyClass.add( this.result_browser);
 			},
+			
 			
 			Add_Event: function(){
 				
@@ -327,6 +341,7 @@
 				
 			},
 			
+			
 			Remove_Event: function(){
 				
 				// orientationchange event
@@ -376,11 +391,13 @@
 				
 			},
 			
+			
 			Update: function(){
 				
 				Update_in2body();
 				
 			},
+			
 			
 			get: function( arg){
 				
@@ -505,7 +522,7 @@
 						break;
 						
 					case 'version':
-						result= '1.0.3';
+						result= '1.0.4';
 						break;
 						
 				}
@@ -513,7 +530,26 @@
 				return result;
 			},
 			
+			
+			getY: function( arg){
+				
+				var result= null;
+				
+				if( arg == null){
+					return result;
+				}
+				
+				var parentDOM= document.getElementById(arg);
+				if( parentDOM == null){
+					return result;
+				}
+				
+				result= parentDOM.getBoundingClientRect();
+				return result.top+ window.pageYOffset;
+			},
+			
 		};
+		
 		
 		function Update_in2body(){
 			
@@ -526,6 +562,7 @@
 			result_hour=	today.getHours();
 			result_min=		Math.floor(today.getMinutes()/10)*10;
 			result_sec=		Math.floor(today.getSeconds()/10)*10;
+			
 			
 			// portrait
 			if( window.innerHeight / window.innerWidth > 1){
@@ -541,12 +578,14 @@
 				result_orientation= is_square ? 'square' : 'portrait';
 			}
 			
+			
 			if( 1400 <= document.documentElement.clientWidth)	result_breakpoint= 'xxl';	// Extra extra large / larger desktops( ≥1400px)
 			if( 1400 >  document.documentElement.clientWidth)	result_breakpoint= 'xl';	// Extra large / wide desktops( ≥1200px)
 			if( 1200 >  document.documentElement.clientWidth)	result_breakpoint= 'lg';	// Large / desktops( ≥992px)
 			if(  992 >  document.documentElement.clientWidth)	result_breakpoint= 'md';	// Medium / tablets( ≥768px)
 			if(  768 >  document.documentElement.clientWidth)	result_breakpoint= 'sm';	// Small / landscape phones( ≥576px)
 			if(  576 >  document.documentElement.clientWidth)	result_breakpoint= 'xs';	// Extra small / portrait phones( <576px)
+			
 			
 			var max_Y= Math.max( document.body.scrollHeight, document.documentElement.scrollHeight,
 								 document.body.offsetHeight, document.documentElement.offsetHeight,
@@ -612,6 +651,7 @@
 				document.body.classList.remove( tmp);
 			}
 			
+			
 			if( is_month)		document.body.classList.add( 'month'+ result_month);
 			if( is_date)		document.body.classList.add( 'date'+ result_date);
 			if( is_day)			document.body.classList.add( 'day'+ result_day);
@@ -624,17 +664,39 @@
 			if( is_yratio)		document.body.classList.add( 'YR'+ result_YRatio);
 			if( is_xratio)		document.body.classList.add( 'XR'+ result_XRatio);
 			
-			document.body.style.setProperty('--pageY', window.pageYOffset);
-			document.body.style.setProperty('--pageX', window.pageXOffset);
 			
-			document.body.style.setProperty('--clientH', document.documentElement.clientHeight);
-			document.body.style.setProperty('--clientW', document.documentElement.clientWidth);
+			var pageYRatio_finely= ( Math.round( max_Y- document.documentElement.clientHeight) == Math.round( window.pageYOffset)) ? 100 : Math.floor( ( ( window.pageYOffset > ( max_Y- document.documentElement.clientHeight))? ( max_Y- document.documentElement.clientHeight) : window.pageYOffset)/ ( max_Y- document.documentElement.clientHeight)* 100) *( (window.pageYOffset < 1)? 0 : 1);
+			var pageYRatio_finely255= ( result_YRatio == 100)? 255 : Math.round( 255/ 100* pageYRatio_finely);
 			
-			document.body.style.setProperty('--innerH', window.innerHeight);
-			document.body.style.setProperty('--innerW', window.innerWidth);
-			
-			document.body.style.setProperty('--documentH', max_Y);
-			document.body.style.setProperty('--documentW', max_X);
+			if( in2body.result_is_ie){
+				
+				document.body.style.setAttribute('--pageY', window.pageYOffset);
+				document.body.style.setAttribute('--pageX', window.pageXOffset);
+				
+				document.body.style.setAttribute('--clientH', document.documentElement.clientHeight);
+				document.body.style.setAttribute('--clientW', document.documentElement.clientWidth);
+				
+				document.body.style.setAttribute('--YRatio', pageYRatio_finely* 0.01);
+				document.body.style.setAttribute('--YRatio255', pageYRatio_finely255);
+				
+				document.body.style.setAttribute('--documentH', max_Y);
+				document.body.style.setAttribute('--documentW', max_X);
+				
+			}else{
+				
+				document.body.style.setProperty('--pageY', window.pageYOffset);
+				document.body.style.setProperty('--pageX', window.pageXOffset);
+				
+				document.body.style.setProperty('--clientH', document.documentElement.clientHeight);
+				document.body.style.setProperty('--clientW', document.documentElement.clientWidth);
+				
+				document.body.style.setProperty('--YRatio', pageYRatio_finely* 0.01);
+				document.body.style.setProperty('--YRatio255', pageYRatio_finely255);
+				
+				document.body.style.setProperty('--documentH', max_Y);
+				document.body.style.setProperty('--documentW', max_X);
+				
+			}
 			
 		}
 		
